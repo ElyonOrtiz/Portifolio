@@ -69,9 +69,9 @@ export const HeroSection = () => {
         <Image
           width={430}
           height={404}
-          src="/images/teste2.jpeg"
+          src="/images/foto2.png"
           alt="Foto de Perfil Elyon Ortiz"
-          className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404ps] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
+          className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
         />
       </div>
     </section>
