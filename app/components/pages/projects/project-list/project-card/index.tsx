@@ -1,5 +1,5 @@
 import Image from "next/image"
-import varvariavel1 from '../../../../../../../public/images/Wallpaper- 2560x1600.png'
+import varvariavel1 from '../../../../../../public/images/Wallpaper- 2560x1600.png'
 
 export const ProjectCard = () => {
   return (
