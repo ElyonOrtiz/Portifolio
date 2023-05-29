@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <ContactForm />
         <Footer />
-        <BackToTop />
       </body>
+      <BackToTop />
     </html>
   );
 }
