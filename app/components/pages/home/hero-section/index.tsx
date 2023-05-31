@@ -3,29 +3,9 @@ import { Button } from "@/app/components/button";
 import { TechBadge } from "@/app/components/tech-badge";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import Image from "next/image";
-import {
-  TbBrandGithub,
-  TbBrandLinkedin,
-  TbBrandWhatsapp,
-} from "react-icons/tb";
 import { HomePageInfo } from "@/app/types/page-info";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { CMSIcon } from "@/app/components/cms-icon";
-
-const MOCK_CONTACTS = [
-  {
-    url: "https://github.com.br",
-    icon: <TbBrandGithub />,
-  },
-  {
-    url: "https://github.com.br",
-    icon: <TbBrandLinkedin />,
-  },
-  {
-    url: "https://github.com.br",
-    icon: <TbBrandWhatsapp />,
-  },
-];
 
 type HomeSectionProps = {
   homeInfo: HomePageInfo
@@ -79,7 +59,7 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
         <Image
           width={430}
           height={404}
-          src="/images/foto2.png"
+          src={homeInfo.profilePicture.url}
           alt="Foto de Perfil Elyon Ortiz"
           className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
         />
