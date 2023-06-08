@@ -30,7 +30,7 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
           </div>
           {/*  */}
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
-            {homeInfo.technologies.map((tech) => (
+            {homeInfo.technologies .map((tech) => (
               <TechBadge name={tech.name} />
             ))}
           </div>
@@ -51,7 +51,7 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
                 >
                   <CMSIcon icon={contact.iconSvg}/>
                 </a>
-              ))}
+              ))} 
             </div>
           </div>
         </div>
