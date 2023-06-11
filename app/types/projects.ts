@@ -28,6 +28,7 @@ export type Project = {
     sections: ProjectSection[]
     description: {
       raw: RichTextContent
+      text: string
     }
     liveProject?: string
     githubUrl?: string

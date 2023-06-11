@@ -1,13 +1,21 @@
 import Image from "next/image"
 import variavel1 from '../../../../../../public/images/Wallpaper- 2560x1600.png'
+import { Project } from "@/app/types/projects"
 
-export const ProjectCard = () => {
+type ProjectCardProps = {
+  project: Project
+}
+
+export const ProjectCard = ( {project}: ProjectCardProps ) => {
+
+  const technologies = project.technologies.map(x => x.name).join(', ');
+
   return (
    <div className="rounded-lg h-[436px] flex flex-col bg-gray-800 overflow-hidden border-2 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 transition-all group">
     <div className="w-full h-48 overflow-hidden"> 
       <Image
-       src={variavel1}
-       alt="Imagem Projeto NLW"
+       src={project.thumbnail.url}
+       alt={`Imagem dod projeto ${project.title}`}
        width={380}
        height={200}
        unoptimized
@@ -15,9 +23,15 @@ export const ProjectCard = () => {
       />
     </div>
     <div className="flex flex-1 flex-col p-8 ">
-      <strong className="font-medium text-gray-50/90 group-hogver:text-emerald-500 transition-all">NLW Space Time</strong>
-      <p className="mt-2 text-gray-400 line-clamp-4"> Space Time è um projeto da RocktSeat de um intencivão de programação realizado em maio de 2022, é uma plataforma que permite fazer postagem de eventos pessoais destacando a linha do tempo de seus usários </p>
-      <span className="text-gray-300 tex-sm font-medium clock mt-auto truncate">Next.js, Axios, Prisma, React, TypeScript,  </span>
+      <strong className="font-medium text-gray-50/90 group-hogver:text-emerald-500 transition-all">
+        {project.title}
+      </strong>
+      <p className="mt-2 text-gray-400 line-clamp-4">
+        {project.shortDescription}
+      </p>
+      <span className="text-gray-300 tex-sm font-medium clock mt-auto truncate">
+          {technologies}
+      </span>
     </div>
    </div>
   )

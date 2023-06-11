@@ -12,14 +12,14 @@ type ProjectCardProps = {
 export const ProjectCard = ({ project }: ProjectCardProps) => {
    return (
       <div className='flex gap-6 lg:gap-12 flex-col lg:flex-row'>
-         <div className='w-full h-full '>
-            <Image className="w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full object-cover rounded-lg"
+         <div className='w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full '>
+            <Image className="w-full h-full object-cover rounded-lg"
                alt={`Thumbnail do projeto ${project.title}`}
                width={420}
                height={304}
                src={project.thumbnail.url} />
          </div>
-         <div>
+         <div className='flex-1 lg:py-[18px]'>
             <h3 className='flex items-center gap-3 font-medium tex-lg text-gray-50'>
                <Image
                   width={20}
