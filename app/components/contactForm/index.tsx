@@ -14,7 +14,7 @@ import { fadeUpAnimation } from "@/app/lib/animation"
 const contactFormSchema = z.object({
  name: z.string().min(3).max(100),
  email: z.string().email(),
- message: z.string().min(3).max(150),
+ message: z.string().min(3),
 })
 
 type ContactFormData = z.infer<typeof contactFormSchema>
