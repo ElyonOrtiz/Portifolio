@@ -1,4 +1,4 @@
-'use sclient'
+'use client'
 import { Button } from "@/app/components/button"
 import { SectionTitle } from "@/app/components/section-title"
 import { TechBadge } from "@/app/components/tech-badge"

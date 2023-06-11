@@ -1,4 +1,4 @@
-'import use client'
+'use client'
 
 import { Link } from "@/app/components/link/Link"
 import { SectionTitle } from "@/app/components/section-title"

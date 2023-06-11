@@ -1,3 +1,4 @@
+'use client'
 import { fadeUpAnimation } from "@/app/lib/animation"
 import { ProjectSection } from "@/app/types/projects"
 import { motion } from "framer-motion"

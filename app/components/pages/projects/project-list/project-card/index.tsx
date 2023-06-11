@@ -1,5 +1,4 @@
 import Image from "next/image"
-import variavel1 from '../../../../../../public/images/Wallpaper- 2560x1600.png'
 import { Project } from "@/app/types/projects"
 
 type ProjectCardProps = {
