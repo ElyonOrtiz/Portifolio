@@ -7,7 +7,7 @@ export type KnownTech = {
 }
 
 export type ProjectSection = {
-  title: string
+  title?: string
   image: {
     url: string
   }

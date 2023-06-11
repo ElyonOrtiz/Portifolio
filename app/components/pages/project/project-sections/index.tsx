@@ -8,8 +8,11 @@ type ProjectSectionsProps = {
 export const ProjectSections = ({sections}: ProjectSectionsProps) => {
   return (
    <section className="container my-12 md:my-32 flex flex-col gap-8 md:gap-32">
-    {sections.map(section =>(
-     <div key={section.title} className="flex flex-col itemss-center gap-6 md:gap-12">
+    {sections.map(section => ( 
+    
+    section?.image && 
+      
+     <div key={section.title} className="flex flex-col items-center gap-6 md:gap-12">
       <h2 className="text-2xl md:text-3xl">
        {section.title}
       </h2>
