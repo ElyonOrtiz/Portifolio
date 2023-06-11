@@ -6,6 +6,7 @@ import Image from "next/image";
 import { HomePageInfo } from "@/app/types/page-info";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import { CMSIcon } from "@/app/components/cms-icon";
+import { motion } from "framer-motion";
 
 type HomeSectionProps = {
   homeInfo: HomePageInfo
@@ -21,7 +22,13 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
   return (
     <section className="w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-[110px]">
       <div className="container flex items-start justify-between flex-col-reverse lg:flex-row">
-        <div className="w-full lg:max-w-[530px]">
+        <motion.div 
+        className="w-full lg:max-w-[530px]"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        transition={{ duration: 0.5 }}
+        >
           <p className="font-mono text-emerald-400">Olá meu nome é</p>
           <h2 className="text-4xl font-medium mt-2"> Elyon Ortiz</h2>
             {/* Here My Text Of Introduction */}
@@ -30,8 +37,15 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
           </div>
           {/*  */}
           <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-[340px]">
-            {homeInfo.technologies .map((tech) => (
-              <TechBadge key={tech.name} name={tech.name} />
+            {homeInfo.technologies.map((tech, i) => (
+              <TechBadge 
+               key={`intro-tech-${tech.name}`}
+               name={tech.name}
+               initial={{ opacity: 0, scale: 0 }}
+               whileInView={{ opacity:1, scale: 1 }}
+               exit={{ opacity:0, scale:0}}
+               transition={{duration:0.5, delay: i * 0.1 }}
+              />
             ))}
           </div>
 
@@ -54,7 +68,7 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
               ))} 
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <Image
           width={430}
