@@ -70,6 +70,13 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
           </div>
         </motion.div>
 
+        <motion.div
+          initial={{opacity: 0, y:200, scale:0.5}}
+          whileInView={{ opacity: 1, y:0, scale:1 }}
+          exit={{ opacity: 0, y:200, scale: 0.5 }}
+          transition={{ duration: 0.5}}
+          className="oringin-center"
+        >
         <Image
           width={430}
           height={404}
@@ -77,6 +84,7 @@ export const HeroSection = ({homeInfo}: HomeSectionProps) => {
           alt="Foto de Perfil Elyon Ortiz"
           className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
         />
+        </motion.div>
       </div>
     </section>
   );

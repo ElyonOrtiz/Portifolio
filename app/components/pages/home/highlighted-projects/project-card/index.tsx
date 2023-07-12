@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import test from '../../../../../../public/images/testedeprojeto.png'
 import { TechBadge } from '@/app/components/tech-badge'
 import { Link } from '@/app/components/link/Link'
 import { HiArrowNarrowRight } from 'react-icons/hi'
@@ -28,9 +27,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       className='flex gap-6 lg:gap-12 flex-col lg:flex-row'
       >
          <motion.div 
-         initial={{ opacity: 0, y: 100, scale:0.5 }}
+         initial={{ opacity: 0, y: 0, scale:0.5 }}
          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-         exit={{ opacity: 0, y: 100, scale: 0.5 }}
+         exit={{ opacity: 0, y: 0, scale: 0.5 }}
          transition={{ duration: 0.3, delay: 0.3 }}
          className='w-full  h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full'>
             <Image className="w-full h-full object-cover rounded-lg"
