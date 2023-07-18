@@ -20,9 +20,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
    return (
       
       <motion.div 
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 100 }}
+      exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
       className='flex gap-6 lg:gap-12 flex-col lg:flex-row'
       >
