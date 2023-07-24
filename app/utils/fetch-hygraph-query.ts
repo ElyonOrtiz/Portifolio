@@ -4,6 +4,7 @@ export const fetchHygraphQuery = async <T>(
   ): Promise<T> => {
   const response = await fetch(process.env.HYGRAPH_URL!, {
     method: 'POST',
+    cache: 'no-store', 
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
