@@ -89,8 +89,8 @@ export const Header = () => {
     <AnimatePresence>
       {isHeaderVisible && (
         <motion.header
+          transition={{ duration: 0.5 }}
           animate={{ y: 0 }}
-          exit={{ y: -100 }}
           className="fixed top-0 w-full z-10 h-16 flex items-center justify-center shadow-buttonSm rounded-sm bg-gray-900 bg-cover bg-center bg-no-repeat"
         >
           <div className="container flex items-center justify-between ">

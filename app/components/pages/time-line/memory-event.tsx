@@ -30,7 +30,7 @@ export const MemoryEvent = () => {
         ></motion.div>
         <SectionTitle 
           subtitle="projetos"
-          title= "Conclusão de Curso" // here will has dynamic data -> {memory.title}
+          title= "Em Breve minha linha do tempo" // here will has dynamic data -> {memory.title}
           className="text-center items-center sm:[&>h3]text-4xl"
         />
         <motion.div 
@@ -39,9 +39,9 @@ export const MemoryEvent = () => {
          //Richtext down
          // -> {memory.description.raw}
          >
-          <p>
-            NLW-SpaceTeime é um sistema para web e mobile, feito em Next.js e ReactNative, Tratasse de um sistema de linha do tempo, uma rede social em uma escala menor, onde é possível realizar postagens e atualizações da linha do tempo o sistema conta com autenticação Oauth de usuário, e uso de cookies. O backend foi feito em Node.js, a parte da web feito em Next.js, e a moible feita com ReactNative,
-          </p>
+          <span className="text-gray-400 fontsize-[80px]">
+            Esse espaço será destinado a postagens de eventos que considero um diferencial da minha formação e do meu trabalho
+          </span>
         </motion.div>
         
         <motion.div 
