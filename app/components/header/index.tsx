@@ -4,8 +4,9 @@ import Image from "next/image";
 import { NavItem } from "./nav-item";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { SideBarMobile } from "./sidebar-mobile";
 
 const NAV_ITEMS = [
   {
@@ -23,10 +24,37 @@ const NAV_ITEMS = [
 ];
 
 export const Header = () => {
-  const page = usePathname();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const changeSideBar = () => {
+    setIsMobileMenuVisible(!isMobileMenuVisible);
+  }
+  const handleScroll = () => {
+    setIsMobileMenuVisible(false);
+  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenuVisible &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) 
+      ) {
+        setIsMobileMenuVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
 
+    // Adicionando event listener para capturar o clique fora do sidebar
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      // Removendo o event listener quando o componente é desmontado
+      document.removeEventListener("click", handleClickOutside);
+      
+    };
+  }, [isMobileMenuVisible]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,10 +89,9 @@ export const Header = () => {
     <AnimatePresence>
       {isHeaderVisible && (
         <motion.header
-          initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}
-          className="fixed top-0 w-full z-10 h-20 flex items-center justify-center bg-gray-900 bg-cover bg-center bg-no-repeat"
+          className="fixed top-0 w-full z-10 h-16 flex items-center justify-center shadow-buttonSm rounded-sm bg-gray-900 bg-cover bg-center bg-no-repeat"
         >
           <div className="container flex items-center justify-between ">
             <Link href="/">
@@ -78,7 +105,13 @@ export const Header = () => {
             </Link>
             <nav className="flex items-center gap-4 sm:gap-10">
               {isSmallScreen ? (
-                <GiHamburgerMenu size={30} className="text-gray-400" />
+               <div onClick={changeSideBar}>
+                 <GiHamburgerMenu size={30} className="text-gray-400 cursor-pointer" />
+                 { isMobileMenuVisible && (
+                  <div ref={sidebarRef}>
+                  <SideBarMobile NAV_ITEMS={NAV_ITEMS}/></div>
+                 )}
+              </div>
               ) : (
                 NAV_ITEMS.map((item) => <NavItem {...item} key={item.href} />)
               )}
