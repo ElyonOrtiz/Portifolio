@@ -51,13 +51,14 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
 export default async function Project ({params: { slug } }: ProjectProps) {
   const { project } = await getProjectDetails(slug)
 
-
-  console.log(project)
    return (
-    <>
+    <div>
+      {project && project.sections && (<>
       <ProjectDetails project={project}/>
       <ProjectSections sections={project.sections}/>
-    </>
+    </>)
+    } 
+    </div>
    )
 }
 
@@ -77,10 +78,11 @@ export async function generateStaticParams () {
 export async function generateMetadata({
   params: { slug }
 }: ProjectProps): Promise<Metadata> {
-
   const data = await getProjectDetails(slug)
+
   const project = data.project
-  return {
+  
+  return project && {
     title: project.title,
     description: project.description.text,
     openGraph: {

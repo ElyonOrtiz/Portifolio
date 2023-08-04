@@ -1,4 +1,5 @@
 'use client'
+
 import Link from "next/link";
 import Image from "next/image";
 import { NavItem } from "./nav-item";
@@ -25,7 +26,7 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const changeSideBar = () => {
@@ -84,11 +85,14 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  useEffect(() => {
+    setIsHeaderVisible(true);
+  }, []);
 
   return (
     <AnimatePresence>
       {isHeaderVisible && (
-        <motion.header
+        <motion.header          
           transition={{ duration: 0.5 }}
           animate={{ y: 0 }}
           className="fixed top-0 w-full z-10 h-16 flex items-center justify-center shadow-buttonSm rounded-sm bg-gray-900 bg-cover bg-center bg-no-repeat"
