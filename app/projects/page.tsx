@@ -32,8 +32,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
 
 export default async function Projects() {
    const { projects } = await getPageData()
-   console.log(projects)
-   return (
+   return projects && (
       <>
         <PageIntroduction />
         <ProjectsList projects={projects}/>
