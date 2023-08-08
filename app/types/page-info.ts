@@ -1,6 +1,7 @@
 import { RichTextContent } from "@graphcms/rich-text-types"
 import { KnownTech, Project } from "./projects"
 import { WorkExperience } from './work-experience';
+import { AboutMeIntroduction, Memory } from './aboutMe';
 
 export type Social = {
   url: string
@@ -42,4 +43,14 @@ export type ProjectsPageStaticData = {
   projects: {
     slug: string,
   }[]
+}
+
+export type AboutMeData = {
+  aboutMe : {
+  introduction:{
+    raw: RichTextContent
+  } 
+  title: string
+  memoriesSections: Memory[]
+ }
 }
