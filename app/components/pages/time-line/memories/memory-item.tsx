@@ -10,7 +10,6 @@ type IMemoryProps = {
 }
 
 export const MemoryItem= ({memory}: IMemoryProps ) => {
-  console.log(memory.date)
   const date = new Date(memory.date);
   const formattedDate = format(date, "dd/MM/yyyy", { locale: ptBR }).toString();
 

@@ -10,7 +10,7 @@ export const fetchHygraphQuery = async <T>(
       Authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
     },
     next: {
-      revalidate
+      revalidate,
     },
     body: JSON.stringify({
       query,
@@ -18,7 +18,6 @@ export const fetchHygraphQuery = async <T>(
   })
 
   const { data } = await response.json()
-  console.log(data)
   return data
   
 }
