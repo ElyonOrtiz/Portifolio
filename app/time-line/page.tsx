@@ -26,7 +26,6 @@ const getPageData = async (): Promise<AboutMeData> => {
  `
   return fetchHygraphQuery(
     query,
-    60 * 60 * 24 
   ) 
 }
 export default async function Memories() {
